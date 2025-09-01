@@ -1,0 +1,32 @@
+{
+  "realm": "ecommerce",
+  "enabled": true,
+  "clients": [
+    {
+      "clientId": "gateway",
+      "publicClient": false,
+      "secret": "gateway-secret",
+      "serviceAccountsEnabled": true,
+      "redirectUris": ["http://localhost:8080/*"],
+      "attributes": {
+        "oauth2.device.authorization.grant.enabled": "true"
+      }
+    },
+    {
+      "clientId": "postman",
+      "publicClient": true,
+      "redirectUris": ["*"],
+      "webOrigins": ["*"]
+    }
+  ],
+  "clientScopes": [
+    {"name": "orders:read"}, {"name": "orders:write"},
+    {"name": "prod:read"}, {"name": "users:read"}
+  ],
+  "roles": {
+    "realm": [
+      {"name": "ROLE_ADMIN"},
+      {"name": "ROLE_USER"}
+    ]
+  }
+}
